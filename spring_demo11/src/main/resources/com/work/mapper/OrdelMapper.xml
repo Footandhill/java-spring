@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.work.mapper.OrderMapper">
+
+    <resultMap id="orderMap" type="order">
+        <id column="oid" property="id"/>
+        <result column="ordertime" property="ordertime"/>
+        <result column="total" property="total"/>
+
+        <association property="user" javaType="user">
+            <id column="uid" property="id"></id>
+            <result column="username" property="username"></result>
+            <result column="password" property="password"></result>
+            <result column="birthday" property="birthday"></result>
+        </association>
+
+    </resultMap>
+
+    <select id="findAll" resultMap="orderMap">
+        SELECT *,o.id oid FROM sys_orders o,sys_user u WHERE o.uid=u.id
+    </select>
+
+</mapper>

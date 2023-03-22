@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring_text?serverTimezone=UTC
+    username: root
+    password: 222222
+
+
+logging:
+  level:
+    com.work: debug
+
+
+
+
+
+#  逻辑删除字段，标记当前记录是否删除
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: deleteds
+      logic-delete-value: 1
+      logic-not-delete-value: 0

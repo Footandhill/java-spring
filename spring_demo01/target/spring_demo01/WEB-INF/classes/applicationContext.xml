@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--    加载外部的properties文件-->
+<!--    <context:property-placeholder location="classpath:jdbc.properties"/>-->
+
+<!--    spring注解扫描配置-->
+<!--    <context:component-scan base-package="com.work"/>-->
+
+    <!--无参构造方法-->
+<!--    <bean id="UserDao" class="com.work.dao.impl.UserDaoImpl"></bean>-->
+
+    <!--工厂静态方法-->
+<!--    <bean id="UserDao" class="com.work.faction.User_SFactory" factory-method="getUser"></bean>-->
+
+    <!--工厂实例方法-->
+<!--    <bean id="factroy" class="com.work.faction.User_DyFactroy"></bean>-->
+<!--    <bean id="UserDao" factory-bean="factroy" factory-method="getUser"></bean>-->
+
+<!--    普通数据 依赖注入-->
+<!--    <bean id="UserDao" class="com.work.dao.impl.UserDaoImpl">-->
+<!--        <property name="username" value="nahao"></property>-->
+<!--        <property name="age" value="22"></property>-->
+<!--    </bean>-->
+
+<!--&lt;!&ndash;    集合数据 依赖注入&ndash;&gt;-->
+<!--    <bean id="UserDao" class="com.work.dao.impl.UserDaoImpl">-->
+<!--        <property name="strList">-->
+<!--            <list>-->
+<!--                <value>aaa</value>-->
+<!--                <value>bbb</value>-->
+<!--                <value>ccc</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="userMap">-->
+<!--            <map>-->
+<!--                <entry key="u1" value-ref="user1"></entry>-->
+<!--                <entry key="u2" value-ref="user2"></entry>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--        <property name="props">-->
+<!--            <props>-->
+<!--                <prop key="a">aaa</prop>-->
+<!--                <prop key="b">bbb</prop>-->
+<!--                <prop key="c">ccc</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+<!--    <bean id="user1" class="com.work.demo.User">-->
+<!--        <property name="name" value="lisi"/>-->
+<!--        <property name="address" value="hunan"/>-->
+<!--    </bean>-->
+<!--    <bean id="user2" class="com.work.demo.User">-->
+<!--        <property name="name" value="wangwu"/>-->
+<!--        <property name="address" value="beijing"/>-->
+<!--    </bean>-->
+
+<!--    引用数据 依赖注入-->
+<!--    <bean id="UserService" class="com.work.service.impl.UserServiceImpl">-->
+<!--        <property name="userDao" ref="UserDao"></property>-->
+<!--    </bean>-->
+<!--    <bean id="UserService" class="com.work.service.impl.UserServiceImpl">-->
+<!--        <constructor-arg ref="UserDao"></constructor-arg>-->
+<!--    </bean>-->
+
+
+<!--    配置数据文件-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driver}"></property>
+        <property name="jdbcUrl" value="${jdbc.url}"></property>
+        <property name="user" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+</beans>
